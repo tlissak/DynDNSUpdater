@@ -43,6 +43,25 @@ namespace DynDNSUpdater
 
             updater.ErrorCallback = new EventHandler(this.ErrorCallback);
             updater.SuccessCallback = new EventHandler(this.SuccessCallback);
+            updater.LogCallback = new EventHandler(this.LogCallback);
+        }
+
+        private void LogCallback(object sender, EventArgs e)
+        {
+
+            if (this.txtLog.InvokeRequired)
+            {
+                this.Invoke(new Action(() =>  {
+                    txtLog.Text += "\n" + DateTime.Now.ToShortTimeString() + ' ' + updater.logMessage ;
+                })); 
+            }
+            else
+            {
+                this.txtLog.Text = "\n" + DateTime.Now.ToShortTimeString() + ' ' + updater.logMessage ;
+            }
+
+            updater.logMessage = "";
+
         }
 
         private void ErrorCallback(object sender, EventArgs e)

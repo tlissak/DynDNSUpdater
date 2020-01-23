@@ -87,7 +87,6 @@
     <None Include="Resources\Chromatix-Aerial-Web.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Chromatix-Aerial-Web.ico" />
     <None Include="NormalIcon.ico" />
     <None Include="GreenIcon.ico" />
     <None Include="RedIcon.ico" />

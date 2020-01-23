@@ -20,8 +20,10 @@ namespace DynDNSUpdater
         public int UpdateInterval;
 
         public string LastErrorMessage;
+        public string logMessage;
         public EventHandler ErrorCallback;
         public EventHandler SuccessCallback;
+        public EventHandler LogCallback;
 
         public BackgroundUpdater()
         {
@@ -54,7 +56,15 @@ namespace DynDNSUpdater
                 {
                     Debug.WriteLine("Updating "+ Domain +" with public IP " + getPublicIPAddress());
                     
-                    updateIP();
+                    string ret = updateIP();
+                    
+                    logMessage = ret;
+                    //if (ret.StartsWith("nochg")  )
+                    if (ret.StartsWith("!yours") || ret.StartsWith("good") )
+                        LogCallback(this, null);
+
+                    Debug.WriteLine("Url return :" + ret);
+
                     SuccessCallback(this, null);
 
                     Debug.WriteLine("OK");
@@ -82,11 +92,11 @@ namespace DynDNSUpdater
             return addr.Replace("\n", "");
         }
 
-        private void updateIP()
+        private string updateIP()
         {
             string ipAddr = getPublicIPAddress();
             string url = "http://" + ServiceUrl + "/nic/update?system=dyndns&hostname=" + Domain + "&myip=" + getPublicIPAddress();
-            httpGet(url, new NetworkCredential(Username, Password));
+            return httpGet(url, new NetworkCredential(Username, Password));
         }
 
         private string httpGet(string url, NetworkCredential credentials = null)

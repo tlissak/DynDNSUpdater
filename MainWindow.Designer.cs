@@ -44,6 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.validateButton = new System.Windows.Forms.Button();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.txtLog = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.updateInterval)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -179,7 +180,7 @@
             // validateButton
             // 
             this.validateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.validateButton.Location = new System.Drawing.Point(190, 194);
+            this.validateButton.Location = new System.Drawing.Point(190, 263);
             this.validateButton.Name = "validateButton";
             this.validateButton.Size = new System.Drawing.Size(75, 23);
             this.validateButton.TabIndex = 2;
@@ -193,11 +194,20 @@
             this.trayIcon.Visible = true;
             this.trayIcon.DoubleClick += new System.EventHandler(this.trayIcon_DoubleClick);
             // 
+            // txtLog
+            // 
+            this.txtLog.Location = new System.Drawing.Point(13, 191);
+            this.txtLog.Multiline = true;
+            this.txtLog.Name = "txtLog";
+            this.txtLog.Size = new System.Drawing.Size(252, 66);
+            this.txtLog.TabIndex = 3;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 226);
+            this.ClientSize = new System.Drawing.Size(276, 295);
+            this.Controls.Add(this.txtLog);
             this.Controls.Add(this.validateButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -215,6 +225,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -234,6 +245,7 @@
         private System.Windows.Forms.NotifyIcon trayIcon;
         private System.Windows.Forms.NumericUpDown updateInterval;
         private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox txtLog;
     }
 }
 
