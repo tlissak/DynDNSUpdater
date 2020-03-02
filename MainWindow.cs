@@ -48,19 +48,21 @@ namespace DynDNSUpdater
 
         private void LogCallback(object sender, EventArgs e)
         {
-
+            
             if (this.txtLog.InvokeRequired)
             {
                 this.Invoke(new Action(() =>  {
-                    txtLog.Text += "\n" + DateTime.Now.ToShortTimeString() + ' ' + updater.logMessage ;
+                    txtLog.Text += DateTime.Now.ToShortTimeString() + ' ' + updater.logMessage + "\r\n";
+                    updater.logMessage = "";
                 })); 
             }
             else
             {
-                this.txtLog.Text = "\n" + DateTime.Now.ToShortTimeString() + ' ' + updater.logMessage ;
+                this.txtLog.Text += DateTime.Now.ToShortTimeString() + ' ' + updater.logMessage + "\r\n";
+                updater.logMessage = "";
             }
 
-            updater.logMessage = "";
+            
 
         }
 
@@ -152,5 +154,29 @@ namespace DynDNSUpdater
         {
             return System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(input));
         }
+
+        private void execButton_Click(object sender, EventArgs e)
+        {
+            updater.ServiceUrl = serviceUrl.Text;
+            updater.Domain = domain.Text;
+            updater.Username = username.Text;
+            updater.Password = password.Text;
+
+            Properties.Settings.Default.ServiceURL = serviceUrl.Text;
+            Properties.Settings.Default.Domain = domain.Text;
+            Properties.Settings.Default.Username = username.Text;
+            Properties.Settings.Default.Password = ToBase64(password.Text);
+            Properties.Settings.Default.UpdateInterval = updateInterval.Value;
+            Properties.Settings.Default.Save();
+
+            updater.DoNow();
+
+
+
+
+
+        }
+
+        
     }
 }

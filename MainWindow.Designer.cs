@@ -45,6 +45,7 @@
             this.validateButton = new System.Windows.Forms.Button();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.txtLog = new System.Windows.Forms.TextBox();
+            this.execButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.updateInterval)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -60,16 +61,18 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(251, 72);
+            this.groupBox1.Size = new System.Drawing.Size(216, 72);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Service DDNS";
             // 
             // updateInterval
             // 
+            this.updateInterval.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.updateInterval.Location = new System.Drawing.Point(100, 46);
             this.updateInterval.Name = "updateInterval";
-            this.updateInterval.Size = new System.Drawing.Size(145, 20);
+            this.updateInterval.Size = new System.Drawing.Size(110, 20);
             this.updateInterval.TabIndex = 4;
             this.updateInterval.Value = new decimal(new int[] {
             60,
@@ -93,8 +96,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.serviceUrl.Location = new System.Drawing.Point(100, 19);
             this.serviceUrl.Name = "serviceUrl";
-            this.serviceUrl.Size = new System.Drawing.Size(145, 20);
+            this.serviceUrl.Size = new System.Drawing.Size(110, 20);
             this.serviceUrl.TabIndex = 2;
+            this.serviceUrl.Text = "www.ovh.com";
             // 
             // label1
             // 
@@ -111,7 +115,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.domain.Location = new System.Drawing.Point(100, 73);
             this.domain.Name = "domain";
-            this.domain.Size = new System.Drawing.Size(145, 20);
+            this.domain.Size = new System.Drawing.Size(110, 20);
             this.domain.TabIndex = 3;
             // 
             // label2
@@ -135,7 +139,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(14, 83);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(251, 101);
+            this.groupBox2.Size = new System.Drawing.Size(216, 101);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Compte";
@@ -146,7 +150,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.password.Location = new System.Drawing.Point(100, 47);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(145, 20);
+            this.password.Size = new System.Drawing.Size(110, 20);
             this.password.TabIndex = 3;
             this.password.UseSystemPasswordChar = true;
             // 
@@ -156,7 +160,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.username.Location = new System.Drawing.Point(100, 21);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(145, 20);
+            this.username.Size = new System.Drawing.Size(110, 20);
             this.username.TabIndex = 2;
             // 
             // label4
@@ -180,7 +184,7 @@
             // validateButton
             // 
             this.validateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.validateButton.Location = new System.Drawing.Point(190, 263);
+            this.validateButton.Location = new System.Drawing.Point(155, 277);
             this.validateButton.Name = "validateButton";
             this.validateButton.Size = new System.Drawing.Size(75, 23);
             this.validateButton.TabIndex = 2;
@@ -196,17 +200,32 @@
             // 
             // txtLog
             // 
+            this.txtLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLog.Location = new System.Drawing.Point(13, 191);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
-            this.txtLog.Size = new System.Drawing.Size(252, 66);
+            this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLog.Size = new System.Drawing.Size(210, 66);
             this.txtLog.TabIndex = 3;
+            // 
+            // execButton
+            // 
+            this.execButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.execButton.Location = new System.Drawing.Point(14, 274);
+            this.execButton.Name = "execButton";
+            this.execButton.Size = new System.Drawing.Size(75, 23);
+            this.execButton.TabIndex = 4;
+            this.execButton.Text = "Executer";
+            this.execButton.UseVisualStyleBackColor = true;
+            this.execButton.Click += new System.EventHandler(this.execButton_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 295);
+            this.ClientSize = new System.Drawing.Size(241, 309);
+            this.Controls.Add(this.execButton);
             this.Controls.Add(this.txtLog);
             this.Controls.Add(this.validateButton);
             this.Controls.Add(this.groupBox2);
@@ -246,6 +265,7 @@
         private System.Windows.Forms.NumericUpDown updateInterval;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtLog;
+        private System.Windows.Forms.Button execButton;
     }
 }
 

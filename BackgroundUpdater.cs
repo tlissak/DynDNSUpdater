@@ -48,40 +48,45 @@ namespace DynDNSUpdater
             return worker.IsAlive;
         }
 
+        public void DoNow()
+        {
+            try
+            {
+                Debug.WriteLine("Updating " + Domain + " with public IP " + getPublicIPAddress());
+
+                string ret = updateIP();
+
+                logMessage = ret;
+
+                //if (ret.StartsWith("!yours") || ret.StartsWith("good") || ret.StartsWith("nochg"))
+                LogCallback(this, null);
+
+                Debug.WriteLine("Url return :" + ret);
+
+                SuccessCallback(this, null);
+
+                Debug.WriteLine("OK");
+
+                
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Erreur : " + ex.Message);
+                if (ErrorCallback != null)
+                {
+                    Debug.WriteLine(ex.Message);
+                    LastErrorMessage = ex.Message;
+                    ErrorCallback(this, null);
+                }
+            }
+        }
+
         public void DoWork()
         {
             Debug.WriteLine("Thread starting");
             while(_continue) {
-                try
-                {
-                    Debug.WriteLine("Updating "+ Domain +" with public IP " + getPublicIPAddress());
-                    
-                    string ret = updateIP();
-                    
-                    logMessage = ret;
-                    //if (ret.StartsWith("nochg")  )
-                    if (ret.StartsWith("!yours") || ret.StartsWith("good") )
-                        LogCallback(this, null);
-
-                    Debug.WriteLine("Url return :" + ret);
-
-                    SuccessCallback(this, null);
-
-                    Debug.WriteLine("OK");
-
-                    Thread.Sleep(UpdateInterval * 1000);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("Erreur : "+ex.Message);
-                    if (ErrorCallback != null)
-                    {
-                        Debug.WriteLine(ex.Message);
-                        LastErrorMessage = ex.Message;
-                        ErrorCallback(this, null);
-                    }
-                    Thread.Sleep(2000);
-                }
+                DoNow();
+                Thread.Sleep(UpdateInterval * 1000);
             }
             Debug.WriteLine("Thread stopped");
         }
