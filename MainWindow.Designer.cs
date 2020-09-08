@@ -6,7 +6,7 @@
         /// Variable nécessaire au concepteur.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
+         
         /// <summary>
         /// Nettoyage des ressources utilisées.
         /// </summary>
@@ -46,6 +46,7 @@
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.txtLog = new System.Windows.Forms.TextBox();
             this.execButton = new System.Windows.Forms.Button();
+            this.ipv4Provider = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.updateInterval)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -163,6 +164,17 @@
             this.username.Size = new System.Drawing.Size(110, 20);
             this.username.TabIndex = 2;
             // 
+            // ipv4Provider
+            // 
+            this.ipv4Provider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ipv4Provider.Location = new System.Drawing.Point(13, 190);
+            this.ipv4Provider.Name = "ipv4Provider";
+            this.ipv4Provider.Size = new System.Drawing.Size(211, 20);
+            this.ipv4Provider.TabIndex = 5;
+            this.ipv4Provider.Text = "http://ipv4.icanhazip.com";
+
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -184,7 +196,7 @@
             // validateButton
             // 
             this.validateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.validateButton.Location = new System.Drawing.Point(155, 277);
+            this.validateButton.Location = new System.Drawing.Point(155, 301);
             this.validateButton.Name = "validateButton";
             this.validateButton.Size = new System.Drawing.Size(75, 23);
             this.validateButton.TabIndex = 2;
@@ -202,7 +214,7 @@
             // 
             this.txtLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLog.Location = new System.Drawing.Point(13, 191);
+            this.txtLog.Location = new System.Drawing.Point(12, 216);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -212,19 +224,21 @@
             // execButton
             // 
             this.execButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.execButton.Location = new System.Drawing.Point(14, 274);
+            this.execButton.Location = new System.Drawing.Point(14, 298);
             this.execButton.Name = "execButton";
             this.execButton.Size = new System.Drawing.Size(75, 23);
             this.execButton.TabIndex = 4;
             this.execButton.Text = "Executer";
             this.execButton.UseVisualStyleBackColor = true;
             this.execButton.Click += new System.EventHandler(this.execButton_Click);
+            
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(241, 309);
+            this.ClientSize = new System.Drawing.Size(241, 333);
+            this.Controls.Add(this.ipv4Provider);
             this.Controls.Add(this.execButton);
             this.Controls.Add(this.txtLog);
             this.Controls.Add(this.validateButton);
@@ -266,6 +280,7 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.Button execButton;
+        private System.Windows.Forms.TextBox ipv4Provider;
     }
 }
 

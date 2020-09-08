@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DynDNSUpdater.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="ServiceURL" Type="System.String" Scope="User">
@@ -16,6 +16,9 @@
     </Setting>
     <Setting Name="UpdateInterval" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="IPv4Provider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ipv4.icanhazip.com</Value>
     </Setting>
   </Settings>
 </SettingsFile>

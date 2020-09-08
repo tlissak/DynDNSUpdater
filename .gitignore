@@ -1,2 +1,7 @@
 bin/
 obj/
+/publish
+/.vs/DynDNSUpdater/v15
+/.vs
+/DynDNSUpdater_TemporaryKey.pfx
+/DynDNSUpdater.csproj.user

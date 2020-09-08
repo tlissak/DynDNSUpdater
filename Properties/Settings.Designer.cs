@@ -82,5 +82,20 @@ namespace DynDNSUpdater.Properties {
                 this["UpdateInterval"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string IPv4Provider
+        {
+            get
+            {
+                return ((string)(this["IPv4Provider"]));
+            }
+            set
+            {
+                this["IPv4Provider"] = value;
+            }
+        }
     }
 }

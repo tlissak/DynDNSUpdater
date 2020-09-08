@@ -18,6 +18,7 @@ namespace DynDNSUpdater
         public string Username;
         public string Password;
         public int UpdateInterval;
+        public string IPv4Provider;
 
         public string LastErrorMessage;
         public string logMessage;
@@ -93,7 +94,8 @@ namespace DynDNSUpdater
 
         private string getPublicIPAddress()
         {
-            string addr = httpGet("http://ipv4.icanhazip.com");
+            
+            string addr = httpGet(Properties.Settings.Default.IPv4Provider);
             return addr.Replace("\n", "");
         }
 

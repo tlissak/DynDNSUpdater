@@ -14,7 +14,7 @@ namespace DynDNSUpdater
 {
     public partial class MainWindow : Form
     {
-        private BackgroundUpdater updater;
+        private BackgroundUpdater updater; 
         private bool errorNotified;
 
         public MainWindow()
@@ -34,12 +34,14 @@ namespace DynDNSUpdater
             username.Text = Properties.Settings.Default.Username;
             password.Text = FromBase64(Properties.Settings.Default.Password);
             updateInterval.Value = Properties.Settings.Default.UpdateInterval;
+            ipv4Provider.Text = Properties.Settings.Default.IPv4Provider;
 
             updater.ServiceUrl = Properties.Settings.Default.ServiceURL;
             updater.Domain = Properties.Settings.Default.Domain;
             updater.Username = Properties.Settings.Default.Username;
             updater.Password = FromBase64(Properties.Settings.Default.Password);
             updater.UpdateInterval = (int)Properties.Settings.Default.UpdateInterval;
+            updater.IPv4Provider = Properties.Settings.Default.IPv4Provider;
 
             updater.ErrorCallback = new EventHandler(this.ErrorCallback);
             updater.SuccessCallback = new EventHandler(this.SuccessCallback);
@@ -161,12 +163,14 @@ namespace DynDNSUpdater
             updater.Domain = domain.Text;
             updater.Username = username.Text;
             updater.Password = password.Text;
+            updater.IPv4Provider = ipv4Provider.Text;
 
             Properties.Settings.Default.ServiceURL = serviceUrl.Text;
             Properties.Settings.Default.Domain = domain.Text;
             Properties.Settings.Default.Username = username.Text;
             Properties.Settings.Default.Password = ToBase64(password.Text);
             Properties.Settings.Default.UpdateInterval = updateInterval.Value;
+            Properties.Settings.Default.IPv4Provider = ipv4Provider.Text;
             Properties.Settings.Default.Save();
 
             updater.DoNow();
